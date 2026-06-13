@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대한민국 100대 명산 메타데이터 스키마 명세서</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --code-bg: #2d3748;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Apple SD Gothic Neo', 'Malgun Gothic';
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #1a252f);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 { margin: 0; font-size: 2.5rem; font-weight: 700; }
+        header p { margin: 1rem 0 0 0; font-size: 1.1rem; color: #bdc3c7; }
+        
+        nav {
+            background-color: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--secondary-color); }
+
+        main { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
+        
+        section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th { background-color: #f1f5f9; color: var(--primary-color); font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        
+        pre {
+            background-color: var(--code-bg);
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Fira Code', Consolas, Monaco, monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .url-box {
+            background-color: #edf2f7;
+            border-left: 4px solid var(--secondary-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        .url-box a { color: #2b6cb0; text-decoration: none; font-weight: bold; }
+        .url-box a:hover { text-decoration: underline; }
+        
+        blockquote {
+            margin: 1.5rem 0;
+            padding: 0.5rem 1rem;
+            border-left: 4px solid #cbd5e1;
+            color: #4a5568;
+            font-style: italic;
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Kmountain 메타데이터 스키마 명세서</h1>
+        <p>대한민국 100대 명산 메타데이터 구축을 위한 웹 포털</p>
+    </header>
+
+    <nav>
+        <a href="#section-a">개요 및 배경</a>
+        <a href="#section-b">참조 표준</a>
+        <a href="#section-c">어휘 명세 및 사전</a>
+        <a href="#section-d">XSD 파일</a>
+        <a href="#section-e">샘플 XML 레코드</a>
+    </nav>
+
+    <main>
+        <section id="section-a">
+            <h2>a) 개요 및 배경 (Opening Narrative)</h2>
+            <h3>도메인 역사 및 배경</h3>
+            <p>
+                산림청이 선정한 '대한민국 100대 명산'은 한국의 풍부한 자연유산과 생태학적 가치를 담고 있는 핵심 데이터 자산입니다. 
+                과거 산림 지리 정보와 등산로 데이터는 단순 텍스트나 통일되지 않은 행정 데이터 형태로 관리되어, 등산객들이 필요로 하는 
+                실질적인 정보(지형 특성, 난이도, 예약 필요성 등)를 유기적으로 제공하는 데 한계가 있었습니다. 
+                본 Kmountain 메타데이터 스키마는 파편화된 산림 데이터를 표준화하여 정보의 상호운용성을 확보하고자 개발되었습니다.
+            </p>
+            <h3>주요 이용자</h3>
+            <p>
+                본 스키마의 일차적인 이용자는 <strong>전국의 등산객 및 산악 탐방객</strong>입니다. 아울러 산림 데이터 기반의 
+                애플리케이션을 개발하는 개발자나 산림 자원을 체계적으로 관리하고자 하는 공공기관 및 연구원 또한 핵심 이용자층에 포함됩니다.
+            </p>
+            <h3>스키마 개발 노트 및 이론적 고려사항</h3>
+            <p>
+                Kmountain 스키마는 데이터 고립을 방지하고 웹상에서 자유롭게 공유·확장될 수 있도록 <strong>상호운용성(Interoperability)</strong>을 
+                최우선으로 설계되었습니다. 이를 위해 전 세계적으로 검증된 범용 메타데이터 표준인 Dublin Core와 문헌 서지 표준인 MODS를 도입하였습니다. 
+                고유 자산적 속성(해발고도, 면적, 난이도 등)은 사용자 정의 네임스페이스인 <code>Kmountain</code> 하에 유연하게 설계하여, 
+                표준성과 도메인 특수성의 균형을 도모하였습니다.
+            </p>
+        </section>
+
+        <section id="section-b">
+            <h2>b) 참조 메타데이터 표준 (Relevant Metadata Standards)</h2>
+            <p>본 스키마의 상호운용성과 확장성을 확보하기 위해 다음과 같은 기존 메타데이터 표준을 채택하여 결합했습니다.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>표준 명칭 (Standard)</th>
+                        <th>접두어 (Prefix)</th>
+                        <th>네임스페이스 URI (Namespace)</th>
+                        <th>선정 이유 (Rationale)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Dublin Core</strong></td>
+                        <td><code>dc</code></td>
+                        <td><code>http://purl.org/dc/elements/1.1/</code></td>
+                        <td>산의 공식 명칭, 행정 구역, 지정일, 관리 주체 등 핵심적이고 범용적인 자원 기술을 위해 도입되었습니다.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MODS</strong></td>
+                        <td><code>mods</code></td>
+                        <td><code>http://www.loc.gov/mods/v3</code></td>
+                        <td>등산로의 물리적 상태나 특이사항 등 기존 단순 텍스트로 표현하기 어려운 고차원적인 물리적 설명을 구조화하여 기술하기 위해 선정되었습니다.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kmountain</strong></td>
+                        <td>(기본)</td>
+                        <td><code>https://www.draft4.kr/kmountain/</code></td>
+                        <td>해발고도, 등산 코스 개수, 난이도 등 대한민국 산림 및 등산 도메인에 고유한 속성들을 정의하기 위한 사용자 정의 네임스페이스입니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="section-c">
+            <h2>c) 어휘 명세 및 데이터 사전 (Vocabulary Specification)</h2>
+            
+            <h3>1. 메타데이터 요소 개요</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>요소명 (Element Name)</th>
+                        <th>정의 (Definition)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>dc:title</td><td>산의 공식 명칭</td></tr>
+                    <tr><td>2</td><td>dc:coverage</td><td>행정 구역</td></tr>
+                    <tr><td>3</td><td>address</td><td>산의 상세 주소</td></tr>
+                    <tr><td>4</td><td>dc:rights</td><td>산을 관리하는 관리주체(국립공원, 지역 명산 등)</td></tr>
+                    <tr><td>5</td><td>highestPeak</td><td>봉우리와 최고봉</td></tr>
+                    <tr><td>6</td><td>height</td><td>해발고도(m)</td></tr>
+                    <tr><td>7</td><td>area</td><td>면적(㎡)</td></tr>
+                    <tr><td>8</td><td>type</td><td>산의 지형적 유형으로 화산, 습곡 등으로 분류</td></tr>
+                    <tr><td>9</td><td>dc:date</td><td>국립공원인 경우 지정일과 관리소 등록일 등으로 구분</td></tr>
+                    <tr><td>10</td><td>course</td><td>등산 코스</td></tr>
+                    <tr><td>11</td><td>mods:physical Description</td><td>등산에 도움이 되는 산에 대한 물리적인 특징 설명</td></tr>
+                    <tr><td>12</td><td>difficulty</td><td>등산 난이도로 등산객 수준</td></tr>
+                    <tr><td>13</td><td>season</td><td>등산하기 가장 좋은 계절을 추천</td></tr>
+                    <tr><td>14</td><td>reservation</td><td>등산하기 위해 예약을 해야 한다면, 탐방 예약 페이지</td></tr>
+                    <tr><td>15</td><td>image</td><td>가장 대표적인 산의 이미지</td></tr>
+                </tbody>
+            </table>
+
+            <h3>2. 데이터 사전 (Data Dictionary)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>레이블 및 요소명 (Label / Name)</th>
+                        <th>데이터 타입 (Data Value)</th>
+                        <th>URI 매핑</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>산이름 (dc:title)</td><td>string</td><td>http://purl.org/dc/elements/1.1/title</td></tr>
+                    <tr><td>2</td><td>행정구역 (dc:coverage)</td><td>string</td><td>http://purl.org/dc/elements/1.1/coverage</td></tr>
+                    <tr><td>3</td><td>상세주소 (address)</td><td>string</td><td>http://www.loc.gov/mods/v3</td></tr>
+                    <tr><td>4</td><td>관리주체 (dc:rights)</td><td>string</td><td>http://purl.org/dc/elements/1.1/rights</td></tr>
+                    <tr><td>5</td><td>최고봉 (highestPeak)</td><td>string</td><td>-</td></tr>
+                    <tr><td>6</td><td>해발고도 (height)</td><td>decimal</td><td>-</td></tr>
+                    <tr><td>7</td><td>면적 (area)</td><td>decimal</td><td>-</td></tr>
+                    <tr><td>8</td><td>유형 (type)</td><td>string</td><td>-</td></tr>
+                    <tr><td>9</td><td>지정일 (dc:date)</td><td>date</td><td>http://purl.org/dc/elements/1.1/date</td></tr>
+                    <tr><td>10</td><td>탐방코스 개수 (coursenumber)</td><td>integer</td><td>-</td></tr>
+                    <tr><td>11</td><td>탐방설명 (mods:physicalDescription)</td><td>string</td><td>http://www.loc.gov/mods/v3</td></tr>
+                    <tr><td>12</td><td>난이도 (difficulty)</td><td>string</td><td>-</td></tr>
+                    <tr><td>13</td><td>계절 (season)</td><td>string</td><td>-</td></tr>
+                    <tr><td>14</td><td>예약 (reservation)</td><td>URI</td><td>-</td></tr>
+                    <tr><td>15</td><td>사진 (image)</td><td>URI</td><td>-</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="section-d">
+            <h2>d) XML 스키마 파일 (XSD File)</h2>
+            <p>본 메타데이터 스키마의 무결성을 검증하기 위한 정식 XSD 스키마 파일입니다. 주석과 <code>xs:documentation</code> 구조가 반영되어 있습니다.</p>
+            
+            <div class="url-box">
+                <strong>직접 접근 및 검증용 URL:</strong> 
+                <a href="https://www.draft4.kr/kmountain/draft4_Kmountain.xsd" target="_blank">https://www.draft4.kr/kmountain/draft4_Kmountain.xsd</a>
+            </div>
+
+            <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ xmlns="https://www.draft4.kr/kmountain/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:mods="http://www.loc.gov/mods/v3"
+ targetNamespace="https://www.draft4.kr/kmountain/"
+ elementFormDefault="qualified"&gt;  
+ 
+ &lt;xs:import
+   namespace="http://purl.org/dc/elements/1.1/"
+   schemaLocation="http://dublincore.org/schemas/xmls/simpledc20021212.xsd"/&gt;
+ &lt;xs:import
+    namespace="http://www.loc.gov/mods/v3"
+    schemaLocation="https://www.loc.gov/standards/mods/v3/mods-3-8.xsd"/&gt;
+
+ &lt;xs:element name="Kmountain"&gt;
+      &lt;xs:annotation&gt;
+         &lt;xs:documentation&gt;Metadata for the 100 Famous Mountains selected by the Korea Forest Service of South Korea&lt;/xs:documentation&gt;
+      &lt;/xs:annotation&gt;
+   &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+         &lt;xs:element ref="dc:title" minOccurs="1" maxOccurs="unbounded"/&gt;
+         &lt;xs:element ref="dc:coverage" minOccurs="1" maxOccurs="unbounded"/&gt;&lt;!--위치(두 개 행정구역 걸쳐 있는 경우)--&gt;
+         &lt;xs:element name="address" type="xs:string" minOccurs="1" maxOccurs="unbounded"/&gt;&lt;!--상세주소--&gt;
+         &lt;xs:element ref="dc:rights" minOccurs="0" maxOccurs="unbounded"/&gt;&lt;!--관리주체--&gt;
+         &lt;xs:element name="highestPeak" type="xs:string" minOccurs="0" maxOccurs="unbounded"/&gt;&lt;!--최고봉--&gt;
+         &lt;xs:element name="height" type="xs:decimal" minOccurs="0" maxOccurs="1"/&gt;&lt;!--해발고도--&gt;
+         &lt;xs:element name="area" type="xs:decimal" minOccurs="0" maxOccurs="1"/&gt;&lt;!--면적--&gt;
+         &lt;xs:element name="type"&gt;&lt;!--유형--&gt;
+            &lt;xs:complexType&gt;
+               &lt;xs:simpleContent&gt;
+                  &lt;xs:extension base="xs:string"&gt;
+                     &lt;xs:attribute name="Mountain_Type"&gt;
+                        &lt;xs:simpleType&gt;
+                           &lt;xs:restriction base="xs:string"&gt;
+                              &lt;xs:enumeration value="Volcanoes"/&gt;
+                              &lt;xs:enumeration value="Folded_Mountain"/&gt;
+                              &lt;xs:enumeration value="Faulted_Mountain"/&gt;
+                           &lt;/xs:restriction&gt;
+                        &lt;/xs:simpleType&gt;
+                     &lt;/xs:attribute&gt;
+                  &lt;/xs:extension&gt;
+               &lt;/xs:simpleContent&gt;
+            &lt;/xs:complexType&gt;
+         &lt;/xs:element&gt;
+         &lt;xs:element ref="dc:date"/&gt;&lt;!--등산로 개장일--&gt;
+         &lt;xs:element name="coursenumber" type="xs:integer" minOccurs="0" maxOccurs="1"/&gt;&lt;!--등산코스 개수--&gt;
+         &lt;xs:element ref="mods:physicalDescription"/&gt;&lt;!--등산로 설명--&gt;
+         &lt;xs:element name="difficulty"&gt;&lt;!--등산난이도--&gt;
+            &lt;xs:complexType&gt;
+               &lt;xs:attribute name="Hiking_Difficulty"&gt;
+                  &lt;xs:simpleType&gt;
+                     &lt;xs:restriction base="xs:string"&gt;
+                        &lt;xs:enumeration value="Beginner"/&gt;
+                        &lt;xs:enumeration value="Intermediate"/&gt;
+                        &lt;xs:enumeration value="Advanced"/&gt;
+                     &lt;/xs:restriction&gt;
+                  &lt;/xs:simpleType>
+               &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt; 
+            &lt;/xs:element&gt;
+         &lt;xs:element name="season"&gt;&lt;!--등산계절--&gt;
+            &lt;xs:complexType&gt;
+               &lt;xs:attribute name="Hiking_Season"&gt;
+                  &lt;xs:simpleType&gt;
+                     &lt;xs:restriction base="xs:string"&gt;
+                        &lt;xs:enumeration value="Spring"/&gt;
+                        &lt;xs:enumeration value="Summer"/&gt;
+                        &lt;xs:enumeration value="Autumn"/&gt;
+                        &lt;xs:enumeration value="Winer"/&gt;
+                     &lt;/xs:restriction&gt;
+                  &lt;/xs:simpleType&gt;
+               &lt;/xs:attribute&gt;
+            &lt;/xs:complexType&gt; 
+         &lt;/xs:element&gt;
+         &lt;xs:element name="reservation" type="xs:anyURI"/&gt;&lt;!--탐방예약--&gt;
+         &lt;xs:element name="image" type="xs:anyURI"/&gt;&lt;!--산의 이미지--&gt;   
+      &lt;/xs:sequence&gt;
+   &lt;/xs:complexType&gt;
+ &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+        </section>
+
+        <section id="section-e">
+            <h2>e) 샘플 XML 레코드 (Sample XML Records)</h2>
+            <p>위 호스팅된 XSD 파일 명세 규격을 정상적으로 통과하여 유효성이 검증된 3개의 대표 명산 메타데이터 레코드 실례입니다.</p>
+            
+            <h3>레코드 1: 한라산 (Kmountain_records01.xml)</h3>
+            <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Kmountain xmlns="https://www.draft4.kr/kmountain/"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:mods="http://www.loc.gov/mods/v3"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://www.draft4.kr/kmountain/ https://www.draft4.kr/kmountain/draft4_Kmountain.xsd"&gt;
+    
+    &lt;dc:title&gt;한라산&lt;/dc:title&gt;
+    &lt;dc:coverage&gt;제주특별자치도&lt;/dc:coverage&gt;
+    &lt;address&gt;제주시 한라산국립공원&lt;/address&gt;
+    &lt;dc:rights&gt;국립공원공단&lt;/dc:rights&gt;
+    &lt;highestPeak&gt;백록담&lt;/highestPeak&gt;
+    &lt;height&gt;1950&lt;/height&gt;
+    &lt;area&gt;153.444&lt;/area&gt;
+    &lt;type Mountain_Type="Volcanoes"/&gt;
+    &lt;dc:date&gt;1973-09-01&lt;/dc:date&gt;
+    &lt;coursenumber&gt;7&lt;/coursenumber&gt;
+    &lt;mods:physicalDescription&gt;
+        &lt;mods:note&gt;건천, 기상변화 심함&lt;/mods:note&gt;
+    &lt;/mods:physicalDescription&gt;
+    &lt;difficulty Hiking_Difficulty="Advanced"/&gt;
+    &lt;season Hiking_Season="Autumn"/&gt;
+    &lt;reservation&gt;https://visithalla.jeju.go.kr/main/main.do&lt;/reservation&gt;
+    &lt;image&gt;https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/KOCIS_Halla_Mountain_in_Jeju-do_%286387785543%29.jpg/1280px-KOCIS_Halla_Mountain_in_Jeju-do_%286387785543%29.jpg&lt;/image&gt;
+    
+&lt;/Kmountain&gt;</code></pre>
+
+            <h3>레코드 2: 지리산 (Kmountain_records02.xml)</h3>
+            <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Kmountain xmlns="https://www.draft4.kr/kmountain/"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:mods="http://www.loc.gov/mods/v3"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://www.draft4.kr/kmountain/ https://www.draft4.kr/kmountain/draft4_Kmountain.xsd"&gt;
+    
+    &lt;dc:title&gt;지리산&lt;/dc:title&gt;
+    &lt;dc:coverage&gt;경상남도, 전라남도, 전라북도&lt;/dc:coverage&gt;
+    &lt;address&gt;전라남도 구례군&lt;/address&gt;
+    &lt;dc:rights&gt;국립공원공단&lt;/dc:rights&gt;
+    &lt;highestPeak&gt;천왕봉&lt;/highestPeak&gt;
+    &lt;height&gt;1915&lt;/height&gt;
+    &lt;area&gt;483.022&lt;/area&gt;
+    &lt;type Mountain_Type="Folded_Mountain"/&gt;
+    &lt;dc:date&gt;1971-02-09&lt;/dc:date&gt;
+    &lt;coursenumber&gt;16&lt;/coursenumber&gt;
+    &lt;mods:physicalDescription&gt;
+        &lt;mods:note&gt;높은 봉우리, 계곡이 많음&lt;/mods:note&gt;
+    &lt;/mods:physicalDescription&gt;
+    &lt;difficulty Hiking_Difficulty="Advanced"/&gt;
+    &lt;season Hiking_Season="Autumn"/&gt;
+    &lt;reservation&gt;https://reservation.knps.or.kr/&lt;/reservation&gt;
+    &lt;image&gt
