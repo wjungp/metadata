@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Kmountain xmlns="https://www.draft4.kr/kmountain/"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:mods="http://www.loc.gov/mods/v3"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://www.draft4.kr/kmountain/ file:///C:\Users\user\Desktop\2026_skku\2026_01_metadata\draft\draft4\draft4_Kmountain.xsd">
+    
+    <dc:title>지리산</dc:title>
+    <dc:coverage>경상남도, 전라남도, 전라북도</dc:coverage>
+    <address>전라남도 구례군</address>
+    <dc:rights>국립공원공단</dc:rights>
+    <highestPeak>천왕봉</highestPeak>
+    <height>1915</height>
+    <area>483.022</area>
+    <type Mountain_Type="Folded_Mountain"/>
+    <dc:date>1971-02-09</dc:date>
+    <coursenumber>16</coursenumber>
+    <mods:physicalDescription>
+        <mods:note>높은 봉우리, 계곡이 많음</mods:note>
+    </mods:physicalDescription>
+    <difficulty Hiking_Difficulty="Advanced"/>
+    <season Hiking_Season="Autumn"/>
+    <reservation>https://reservation.knps.or.kr/</reservation>
+    <image>https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Korea-Mountain-Jirisan-15.jpg/1280px-Korea-Mountain-Jirisan-15.jpg</image>    
+    
+</Kmountain>

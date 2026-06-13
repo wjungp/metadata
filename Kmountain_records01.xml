@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Kmountain xmlns="https://www.draft4.kr/kmountain/"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:mods="http://www.loc.gov/mods/v3"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://www.draft4.kr/kmountain/ file:///C:\Users\user\Desktop\2026_skku\2026_01_metadata\draft\draft4\draft4_Kmountain.xsd">
+    
+    <dc:title>한라산</dc:title>
+    <dc:coverage>제주특별자치도</dc:coverage>
+    <address>제주시 한라산국립공원</address>
+    <dc:rights>국립공원공단</dc:rights>
+    <highestPeak>백록담</highestPeak>
+    <height>1950</height>
+    <area>153.444</area>
+    <type Mountain_Type="Volcanoes"/>
+    <dc:date>1973-09-01</dc:date>
+    <coursenumber>7</coursenumber>
+    <mods:physicalDescription>
+        <mods:note>건천, 기상변화 심함</mods:note>
+    </mods:physicalDescription>
+    <difficulty Hiking_Difficulty="Advanced"/>
+    <season Hiking_Season="Autumn"/>
+    <reservation>https://visithalla.jeju.go.kr/main/main.do</reservation>
+    <image>https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/KOCIS_Halla_Mountain_in_Jeju-do_%286387785543%29.jpg/1280px-KOCIS_Halla_Mountain_in_Jeju-do_%286387785543%29.jpg</image>
+    
+</Kmountain>
+    

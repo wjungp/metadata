@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ xmlns="https://www.draft4.kr/kmountain/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:mods="http://www.loc.gov/mods/v3"
+ targetNamespace="https://www.draft4.kr/kmountain/"
+ elementFormDefault="qualified">  
+ <xs:import
+   namespace="http://purl.org/dc/elements/1.1/"
+   schemaLocation="http://dublincore.org/schemas/xmls/simpledc20021212.xsd"/>
+  <xs:import
+    namespace="http://www.loc.gov/mods/v3"
+    schemaLocation="https://www.loc.gov/standards/mods/v3/mods-3-8.xsd"/>
+ <xs:element name="Kmountain">
+      <xs:annotation>
+         <xs:documentation>Metadata for the 100 Famous Mountains selected by the Korea Forest Service of South Korea</xs:documentation>
+      </xs:annotation>
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element ref="dc:title" minOccurs="1" maxOccurs="unbounded"/>
+         <xs:element ref="dc:coverage" minOccurs="1" maxOccurs="unbounded"/><!--위치(두 개 행정구역 걸쳐 있는 경우)-->
+         <xs:element name="address" type="xs:string" minOccurs="1" maxOccurs="unbounded"/><!--상세주소-->
+         <xs:element ref="dc:rights" minOccurs="0" maxOccurs="unbounded"/><!--관리주체-->
+         <xs:element name="highestPeak" type="xs:string" minOccurs="0" maxOccurs="unbounded"/><!--최고봉-->
+         <xs:element name="height" type="xs:decimal" minOccurs="0" maxOccurs="1"/><!--해발고도-->
+         <xs:element name="area" type="xs:decimal" minOccurs="0" maxOccurs="1"/><!--면적-->
+         <xs:element name="type"><!--유형-->
+            <xs:complexType>
+               <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                     <xs:attribute name="Mountain_Type">
+                        <xs:simpleType>
+                           <xs:restriction base="xs:string">
+                              <xs:enumeration value="Volcanoes"/>
+                              <xs:enumeration value="Folded_Mountain"/>
+                              <xs:enumeration value="Faulted_Mountain"/>
+                           </xs:restriction>
+                        </xs:simpleType>
+                     </xs:attribute>
+                  </xs:extension>
+               </xs:simpleContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:element ref="dc:date"/><!--등산로 개장일-->
+         <xs:element name="coursenumber" type="xs:integer" minOccurs="0" maxOccurs="1"/><!--등산코스 개수-->
+         <xs:element ref="mods:physicalDescription"/><!--등산로 설명-->
+         <xs:element name="difficulty"><!--등산난이도-->
+            <xs:complexType>
+               <xs:attribute name="Hiking_Difficulty">
+                  <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                        <xs:enumeration value="Beginner"/>
+                        <xs:enumeration value="Intermediate"/>
+                        <xs:enumeration value="Advanced"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:attribute>
+            </xs:complexType> 
+            </xs:element>
+         <xs:element name="season"><!--등산계절-->
+            <xs:complexType>
+               <xs:attribute name="Hiking_Season">
+                  <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                        <xs:enumeration value="Spring"/>
+                        <xs:enumeration value="Summer"/>
+                        <xs:enumeration value="Autumn"/>
+                        <xs:enumeration value="Winer"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:attribute>
+            </xs:complexType> 
+         </xs:element>
+         <xs:element name="reservation" type="xs:anyURI"/><!--탐방예약-->
+         <xs:element name="image" type="xs:anyURI"/><!--산의 이미지-->   
+      </xs:sequence>
+   </xs:complexType>
+ </xs:element>
+</xs:schema>

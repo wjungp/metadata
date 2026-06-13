@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Kmountain xmlns="https://www.draft4.kr/kmountain/"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:mods="http://www.loc.gov/mods/v3"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://www.draft4.kr/kmountain/ file:///C:\Users\user\Desktop\2026_skku\2026_01_metadata\draft\draft4\draft4_Kmountain.xsd">    
+    
+    <dc:title>설악산</dc:title>
+    <dc:coverage>강원특별자치도</dc:coverage>
+    <address>속초시</address>
+    <dc:rights>국립공원공단</dc:rights>
+    <highestPeak>대청봉</highestPeak>
+    <height>1708</height>
+    <area>398.237</area>
+    <type Mountain_Type="Folded_Mountain"/>
+    <dc:date>1970-03-24</dc:date>
+    <coursenumber>14</coursenumber>
+    <mods:physicalDescription>
+        <mods:note>추석이후부터 눈이 내리고 맑은 계곡, 기이한 암석</mods:note>
+    </mods:physicalDescription>
+    <difficulty Hiking_Difficulty="Advanced"/>
+    <season Hiking_Season="Autumn"/>
+    <reservation>https://reservation.knps.or.kr/</reservation>
+    <image>https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Korea_Seoraksan.jpg/1280px-Korea_Seoraksan.jpg</image>    
+    
+</Kmountain>
