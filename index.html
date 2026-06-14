@@ -253,7 +253,7 @@
             
             <div class="url-box">
                 <strong>직접 접근 및 검증용 URL:</strong> 
-                <a href="https://github.com/wjungp/metadata/blob/main/draft4_Kmountain.xsd" target="_blank">https://www.draft4.kr/kmountain/draft4_Kmountain.xsd</a>
+                <a href="https://github.com/wjungp/metadata/blob/main/draft4_Kmountain.xsd" target="_blank">https://github.com/wjungp/metadata/blob/main/draft4_Kmountain.xsd</a>
             </div>
 
             <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -342,9 +342,13 @@
 
         <section id="section-e">
             <h2>e) 샘플 XML 레코드 (Sample XML Records)</h2>
-            <p>위 호스팅된 XSD 파일 명세 규격을 정상적으로 통과하여 유효성이 검증된 3개의 대표 명산 메타데이터 레코드 실례입니다.</p>
+            <p>위 호스팅된 XSD 파일 명세 규격을 정상적으로 통과하여 유효성이 검증된 3개의 대표 명산 메타데이터 레코드 실례입니다.</p
             
             <h3>레코드 1: 한라산 (Kmountain_records01.xml)</h3>
+            <div class="url-box">
+                <strong>직접 접근 및 검증용 URL:</strong> 
+                <a href="https://github.com/wjungp/metadata/blob/main/Kmountain_records01.xml" target="_blank">https://github.com/wjungp/metadata/blob/main/Kmountain_records01.xml</a>
+            </div>
             <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;Kmountain xmlns="https://www.draft4.kr/kmountain/"
            xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -373,6 +377,10 @@
 &lt;/Kmountain&gt;</code></pre>
 
             <h3>레코드 2: 지리산 (Kmountain_records02.xml)</h3>
+            <div class="url-box">
+                <strong>직접 접근 및 검증용 URL:</strong> 
+                <a href="https://github.com/wjungp/metadata/blob/main/Kmountain_records02.xml" target="_blank">https://github.com/wjungp/metadata/blob/main/Kmountain_records02.xml</a>
+            </div>
             <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;Kmountain xmlns="https://www.draft4.kr/kmountain/"
            xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -396,4 +404,36 @@
     &lt;difficulty Hiking_Difficulty="Advanced"/&gt;
     &lt;season Hiking_Season="Autumn"/&gt;
     &lt;reservation&gt;https://reservation.knps.or.kr/&lt;/reservation&gt;
-    &lt;image&gt
+    &lt;image&gt;https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Korea-Mountain-Jirisan-15.jpg/1280px-Korea-Mountain-Jirisan-15.jpg&lt;/image&gt;
+
+&lt;/Kmountain&gt;</code></pre>
+
+            <h3>레코드 3: 설악산 (Kmountain_records03.xml)</h3>
+            <div class="url-box">
+                <strong>직접 접근 및 검증용 URL:</strong> 
+                <a href="https://github.com/wjungp/metadata/blob/main/Kmountain_records03.xml" target="_blank">https://github.com/wjungp/metadata/blob/main/Kmountain_records03.xml</a>
+            </div>
+            <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Kmountain xmlns="https://www.draft4.kr/kmountain/"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:mods="http://www.loc.gov/mods/v3"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://www.draft4.kr/kmountain/ https://www.draft4.kr/kmountain/draft4_Kmountain.xsd"&gt;
+    
+    &lt;dc:title&gt;설악산&lt;/dc:title&gt;
+    &lt;dc:coverage&gt;강원특별자치도&lt;/dc:coverage&gt;
+    &lt;address&gt;속초시&lt;/address&gt;
+    &lt;dc:rights&gt;국립공원공단&lt;/dc:rights&gt;
+    &lt;highestPeak&gt;대청봉&lt;/highestPeak&gt;
+    &lt;height&gt;1708&lt;/height&gt;
+    &lt;area&gt;398.237&lt;/area&gt;
+    &lt;type Mountain_Type="Folded_Mountain"/&gt;
+    &lt;dc:date&gt;1970-03-24&lt;/dc:date&gt;
+    &lt;coursenumber&gt;16&lt;/coursenumber&gt;
+    &lt;mods:physicalDescription&gt;
+        &lt;mods:note&gt;추석이후부터 눈이 내리고 맑은 계곡, 기이한 암석&lt;/mods:note&gt;
+    &lt;/mods:physicalDescription&gt;
+    &lt;difficulty Hiking_Difficulty="Advanced"/&gt;
+    &lt;season Hiking_Season="Autumn"/&gt;
+    &lt;reservation&gt;https://reservation.knps.or.kr/&lt;/reservation&gt;
+    &lt;image&gt;https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Korea_Seoraksan.jpg/1280px-Korea_Seoraksan.jpg&lt;/image&gt;
